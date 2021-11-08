@@ -15,13 +15,14 @@ state = {
     render() {
         let {item} = this.props;
         console.log(this.state.info);
+
         return (
             <div>
                 <br/>
 
                     <div>{item.FQDN}</div>
 
-                {this.state.isReady&&(<Info info={this.state.info} key={this.state.info.id}/>)}
+                {this.state.isReady&&(<Info info={this.state.info[0]} key={this.state.info[0].id}/>)}
             </div>
         );
     }

@@ -10,8 +10,8 @@ class Info extends Component {
         console.log(info);
         return (
             <div>
-                <div>{info.type}</div>
-                <div>{info.Validfrom}</div>
+                <div>{info.Type}</div>
+                <div>{info.ValidFrom}</div>
                 <div>{info.ValidUntil}</div>
                 <div>{info.domain}</div>
             </div>
