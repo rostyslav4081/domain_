@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import './App.css'
+import {DomainService} from "./services/DomainService";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AllDomains from "./components/all-domains/AllDomains";
+
+
+class App extends Component {
+  domainService = new DomainService();
+
+  state = {
+    domains:[],
+    isReady:false
+  }
+
+
+  render() {
+
+    return (
+        <div>
+
+          {this.state.isReady&&(<AllDomains domains={this.state.domains}/>)}
+
+
+        </div>
+    );
+  }
+  componentDidMount() {
+    this.domainService.getAllDomains().then(value => this.setState({domains: value,isReady:true}));
+  }
+
 }
 
 export default App;
