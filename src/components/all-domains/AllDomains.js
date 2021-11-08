@@ -14,6 +14,7 @@ class AllDomains extends Component {
             </div>
         );
     }
+
 }
 
 export default AllDomains;
