@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DomainFlagService} from "../../services/DomainFlagService";
-import Info from "../info/Info";
+import AllInfo from "../all-info/AllInfo";
 
 
 
@@ -22,12 +22,12 @@ state = {
 
                     <div>{item.FQDN}</div>
 
-                {this.state.isReady&&(<Info info={this.state.info[0]} key={this.state.info[0].id}/>)}
+                {this.state.isReady&&(<AllInfo items={this.state.info} key={this.state.info.id}/>)}
             </div>
         );
     }
     componentDidMount() {
-    this.domainFlagService.getDomainFlagByKey(this.props.item.id).then(value => this.setState({info:value,isReady:true}));
+    this.domainFlagService.getDomainFlagByKey(this.props.item.id).then(value => this.setState({info:value}));
     }
 
 }
